@@ -43,22 +43,18 @@ func (rp *ReverseProxy) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
     proxy := NewReverseProxy()
 
-    proxy.AddRoute("indiastore1.duckdns.com",  "http://localhost:4001")
-    proxy.AddRoute("indiastore2.duckdns.com", "http://localhost:4002")
-    proxy.AddRoute("indiastore3.duckdns.com", "http://localhost:4003")
-    proxy.AddRoute("indiastore4.duckdns.com", "http://localhost:4004")
-    proxy.AddRoute("indiastore5.duckdns.com", "http://localhost:4005")
-    proxy.AddRoute("indiastore6.duckdns.com", "http://localhost:4006")
-    proxy.AddRoute("indiastore7.duckdns.com", "http://localhost:4007")
-    proxy.AddRoute("indiastore8.duckdns.com", "http://localhost:4008")
-    proxy.AddRoute("indiastore9.duckdns.com", "http://localhost:4009")
-    proxy.AddRoute("indiastore10.duckdns.com","http://localhost:4010")
+    proxy.AddRoute("indiastore1.duckdns.org",  "http://172.0.0.1:4001")
+    proxy.AddRoute("indiastore2.duckdns.org", "http://localhost:4002")
+    proxy.AddRoute("indiastore3.duckdns.org", "http://localhost:4003")
+    proxy.AddRoute("indiastore4.duckdns.org", "http://localhost:4004")
+    proxy.AddRoute("indiastore5.duckdns.org", "http://localhost:4005")
+    proxy.AddRoute("indiastore6.duckdns.org", "http://localhost:4006")
+    proxy.AddRoute("indiastore7.duckdns.org", "http://localhost:4007")
+    proxy.AddRoute("indiastore8.duckdns.org", "http://localhost:4008")
+    proxy.AddRoute("indiastore9.duckdns.org", "http://localhost:4009")
+    proxy.AddRoute("indiastore10.duckdns.org","http://localhost:4010")
 
-    log.Println("Starting reverse proxy on :443")
-    if err := http.ListenAndServe(":443", proxy); err != nil {
-        log.Fatalf("Server failed: %v", err)
-    }
-	
+
 	log.Println("Starting reverse proxy on :80")
 
 	if err := http.ListenAndServe(":80", proxy); err != nil {
