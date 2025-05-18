@@ -58,4 +58,10 @@ func main() {
     if err := http.ListenAndServe(":443", proxy); err != nil {
         log.Fatalf("Server failed: %v", err)
     }
+	
+	log.Println("Starting reverse proxy on :80")
+
+	if err := http.ListenAndServe(":80", proxy); err != nil {
+        log.Fatalf("Server failed: %v", err)
+    }
 }
