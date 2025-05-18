@@ -61,10 +61,11 @@ func main() {
 		hostname := r.Host
 		fmt.Printf("Incoming request for host: %s\n", hostname)
 		if(r.Host == "indiastore1.duckdns.org"){
+			fmt.Print("request from duck dns")
 			proxySite1.ServeHTTP(w,r);
-		}
-		
-		proxy.ServeHTTP(w,r);
+		}else {
+			proxy.ServeHTTP(w,r);
+		}	
 	})
 
 	fmt.Println("Reverse Proxy server is running on http://localhost:8080")
